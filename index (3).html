@@ -1,0 +1,2662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coverly — Insurance Made Simple</title>
+
+<style>
+:root{
+  --blue:#2563eb;
+  --blue-dark:#1746b8;
+  --blue-light:#eff6ff;
+  --green:#16a34a;
+  --text:#172033;
+  --muted:#718096;
+  --border:#e5eaf1;
+  --bg:#f6f8fc;
+  --white:#fff;
+  --shadow:0 20px 60px rgba(30,55,90,.10);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:var(--bg);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+  height:74px;
+  background:white;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6%;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:800;
+  color:var(--blue);
+  letter-spacing:-1px;
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+}
+
+.nav-links a{
+  color:#596579;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+}
+
+.nav-links a:hover{
+  color:var(--blue);
+}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.login{
+  color:#526075;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+}
+
+.nav-quote{
+  border:0;
+  background:var(--blue);
+  color:white;
+  padding:11px 19px;
+  border-radius:9px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.nav-quote:hover{
+  background:var(--blue-dark);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  max-width:1180px;
+  margin:auto;
+  padding:90px 25px 75px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:70px;
+  align-items:center;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#eaf2ff;
+  color:var(--blue);
+  padding:8px 13px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:22px;
+}
+
+.hero-badge span{
+  width:7px;
+  height:7px;
+  background:#22c55e;
+  border-radius:50%;
+}
+
+.hero h1{
+  font-size:clamp(44px,6vw,72px);
+  line-height:1.02;
+  letter-spacing:-3.5px;
+  margin-bottom:23px;
+}
+
+.hero h1 span{
+  color:var(--blue);
+}
+
+.hero-text{
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.7;
+  max-width:570px;
+  margin-bottom:32px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  margin-bottom:30px;
+}
+
+.primary-btn,
+.secondary-btn{
+  padding:14px 23px;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.primary-btn{
+  border:0;
+  background:var(--blue);
+  color:white;
+}
+
+.primary-btn:hover{
+  background:var(--blue-dark);
+}
+
+.secondary-btn{
+  background:white;
+  border:1px solid var(--border);
+  color:var(--text);
+}
+
+.trust{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.avatar-stack{
+  display:flex;
+}
+
+.avatar{
+  width:29px;
+  height:29px;
+  border-radius:50%;
+  border:2px solid white;
+  margin-left:-7px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:10px;
+  color:white;
+  font-weight:800;
+}
+
+.avatar:first-child{
+  margin-left:0;
+  background:#60a5fa;
+}
+
+.avatar:nth-child(2){
+  background:#818cf8;
+}
+
+.avatar:nth-child(3){
+  background:#34d399;
+}
+
+.avatar:nth-child(4){
+  background:#f59e0b;
+}
+
+/* HERO CARD */
+
+.hero-card{
+  background:white;
+  border-radius:25px;
+  padding:28px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
+}
+
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+.card-top h3{
+  font-size:18px;
+}
+
+.live{
+  display:flex;
+  gap:7px;
+  align-items:center;
+  color:var(--green);
+  font-size:11px;
+  font-weight:800;
+}
+
+.live-dot{
+  width:7px;
+  height:7px;
+  background:#22c55e;
+  border-radius:50%;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  50%{
+    opacity:.3;
+    transform:scale(.7);
+  }
+}
+
+.mini-plan{
+  padding:17px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.mini-plan.active{
+  background:var(--blue-light);
+  border-color:#a9c5ff;
+}
+
+.mini-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.mini-icon{
+  width:40px;
+  height:40px;
+  background:white;
+  border-radius:10px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:19px;
+}
+
+.mini-plan strong{
+  display:block;
+  font-size:14px;
+}
+
+.mini-plan small{
+  color:var(--muted);
+  font-size:11px;
+}
+
+.mini-price{
+  font-weight:800;
+  color:var(--blue);
+}
+
+/* =========================
+   TRUST BAR
+========================= */
+
+.trust-bar{
+  background:white;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.trust-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:25px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  text-align:center;
+}
+
+.trust-item strong{
+  display:block;
+  font-size:23px;
+  margin-bottom:4px;
+}
+
+.trust-item span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:90px 25px;
+}
+
+.section-heading{
+  text-align:center;
+  max-width:650px;
+  margin:0 auto 45px;
+}
+
+.section-heading .label{
+  color:var(--blue);
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:10px;
+}
+
+.section-heading h2{
+  font-size:38px;
+  letter-spacing:-1.5px;
+  margin-bottom:12px;
+}
+
+.section-heading p{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.feature{
+  background:white;
+  padding:28px;
+  border-radius:17px;
+  border:1px solid var(--border);
+}
+
+.feature-icon{
+  width:48px;
+  height:48px;
+  background:var(--blue-light);
+  border-radius:13px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:21px;
+  margin-bottom:20px;
+}
+
+.feature h3{
+  margin-bottom:8px;
+  font-size:17px;
+}
+
+.feature p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.work-step{
+  text-align:center;
+  padding:25px;
+}
+
+.number{
+  width:46px;
+  height:46px;
+  margin:0 auto 17px;
+  background:var(--blue);
+  color:white;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-weight:800;
+}
+
+.work-step h3{
+  margin-bottom:8px;
+}
+
+.work-step p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+  background:white;
+  border-radius:25px;
+  padding:55px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+  border:1px solid var(--border);
+}
+
+.about h2{
+  font-size:38px;
+  letter-spacing:-1.5px;
+  margin-bottom:17px;
+}
+
+.about p{
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+.about-list{
+  list-style:none;
+}
+
+.about-list li{
+  margin:12px 0;
+  font-size:14px;
+  font-weight:600;
+}
+
+.about-list li::before{
+  content:"✓";
+  color:var(--green);
+  margin-right:9px;
+}
+
+.about-visual{
+  min-height:280px;
+  background:linear-gradient(135deg,#2563eb,#4f8cff);
+  border-radius:20px;
+  color:white;
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+
+.about-visual strong{
+  font-size:60px;
+  line-height:1;
+}
+
+.about-visual span{
+  opacity:.8;
+  margin-top:8px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-box{
+  background:#172033;
+  color:white;
+  border-radius:23px;
+  padding:45px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+}
+
+.contact-box h2{
+  font-size:31px;
+  margin-bottom:8px;
+}
+
+.contact-box p{
+  color:#aeb7c7;
+  font-size:14px;
+}
+
+.contact-btn{
+  background:white;
+  color:var(--text);
+  border:0;
+  padding:14px 22px;
+  border-radius:9px;
+  font-weight:700;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#101827;
+  color:white;
+  padding:55px 6% 25px;
+}
+
+.footer-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+  padding-bottom:40px;
+}
+
+.footer-logo{
+  color:#5d91ff;
+  font-size:24px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.footer-brand p{
+  color:#8c98aa;
+  font-size:13px;
+  line-height:1.6;
+  max-width:280px;
+}
+
+footer h4{
+  margin-bottom:15px;
+  font-size:13px;
+}
+
+footer a{
+  display:block;
+  text-decoration:none;
+  color:#8c98aa;
+  font-size:13px;
+  margin:10px 0;
+}
+
+.footer-bottom{
+  max-width:1100px;
+  margin:auto;
+  padding-top:22px;
+  border-top:1px solid #273142;
+  color:#697587;
+  font-size:11px;
+  display:flex;
+  justify-content:space-between;
+}
+
+/* =========================
+   QUOTE APP
+========================= */
+
+#quoteApp{
+  display:none;
+}
+
+.quote-page{
+  min-height:100vh;
+  background:var(--bg);
+}
+
+.quote-header{
+  height:72px;
+  background:white;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 6%;
+}
+
+.back-home{
+  border:0;
+  background:none;
+  color:var(--muted);
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* QUOTE CONTAINER */
+
+.quote-container{
+  width:min(1100px,92%);
+  margin:45px auto;
+}
+
+.quote-top{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.quote-top h1{
+  font-size:38px;
+  letter-spacing:-1.5px;
+  margin-bottom:9px;
+}
+
+.quote-top p{
+  color:var(--muted);
+}
+
+/* PROGRESS */
+
+.progress{
+  max-width:700px;
+  margin:0 auto 35px;
+  display:flex;
+  justify-content:space-between;
+  position:relative;
+}
+
+.progress::before{
+  content:"";
+  position:absolute;
+  top:16px;
+  left:10%;
+  right:10%;
+  height:2px;
+  background:#e4e8ef;
+}
+
+.progress-line{
+  position:absolute;
+  top:16px;
+  left:10%;
+  height:2px;
+  width:0;
+  background:var(--blue);
+  transition:.35s;
+}
+
+.step{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  color:#a0a8b5;
+  font-size:12px;
+  font-weight:600;
+}
+
+.circle{
+  width:33px;
+  height:33px;
+  background:white;
+  border:2px solid #dfe4eb;
+  border-radius:50%;
+  margin:0 auto 7px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+}
+
+.step.active{
+  color:var(--blue);
+}
+
+.step.active .circle{
+  border-color:var(--blue);
+  background:var(--blue);
+  color:white;
+}
+
+.step.done .circle{
+  background:#eaf2ff;
+  border-color:var(--blue);
+  color:var(--blue);
+}
+
+/* QUOTE CARD */
+
+.app{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.content{
+  padding:40px;
+  min-height:460px;
+}
+
+.screen{
+  display:none;
+  animation:fade .3s ease;
+}
+
+.screen.active{
+  display:block;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.screen-title{
+  margin-bottom:25px;
+}
+
+.screen-title h2{
+  font-size:26px;
+  margin-bottom:7px;
+}
+
+.screen-title p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* INSURANCE */
+
+.insurance-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.insurance{
+  padding:24px 18px;
+  border:2px solid var(--border);
+  border-radius:15px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.insurance:hover{
+  transform:translateY(-2px);
+  border-color:#b8cdfc;
+}
+
+.insurance.selected{
+  border-color:var(--blue);
+  background:var(--blue-light);
+}
+
+.icon{
+  width:48px;
+  height:48px;
+  border-radius:13px;
+  background:#f1f5f9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+  margin-bottom:17px;
+}
+
+.insurance h3{
+  font-size:16px;
+  margin-bottom:5px;
+}
+
+.insurance p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+}
+
+/* PLANS */
+
+.plans{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.plan{
+  border:2px solid var(--border);
+  border-radius:16px;
+  padding:25px;
+  position:relative;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.plan:hover{
+  transform:translateY(-3px);
+}
+
+.plan.selected{
+  border-color:var(--blue);
+  background:#f8fbff;
+}
+
+.popular{
+  position:absolute;
+  top:-12px;
+  right:18px;
+  background:var(--blue);
+  color:white;
+  font-size:10px;
+  font-weight:700;
+  padding:5px 9px;
+  border-radius:20px;
+}
+
+.plan h3{
+  font-size:19px;
+  margin-bottom:10px;
+}
+
+.plan-price{
+  font-size:28px;
+  font-weight:800;
+  color:var(--blue);
+  margin-bottom:18px;
+}
+
+.plan-price span{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:400;
+}
+
+.plan ul{
+  list-style:none;
+}
+
+.plan li{
+  font-size:13px;
+  margin:12px 0;
+  color:#566174;
+}
+
+.plan li::before{
+  content:"✓";
+  color:var(--green);
+  font-weight:800;
+  margin-right:8px;
+}
+
+/* FORM */
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.field{
+  margin-bottom:3px;
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+input,select{
+  width:100%;
+  height:46px;
+  padding:0 13px;
+  border:1px solid #dce2ea;
+  border-radius:9px;
+  outline:none;
+  font-size:14px;
+  color:var(--text);
+  background:white;
+}
+
+input:focus,select:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px #eaf1ff;
+}
+
+/* REVIEW */
+
+.review{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:25px;
+}
+
+.summary{
+  border:1px solid var(--border);
+  border-radius:15px;
+  overflow:hidden;
+}
+
+.summary-row{
+  padding:17px 20px;
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  font-size:14px;
+}
+
+.summary-row:last-child{
+  border-bottom:0;
+}
+
+.summary-row span:first-child{
+  color:var(--muted);
+}
+
+.price-box{
+  background:var(--blue);
+  color:white;
+  border-radius:17px;
+  padding:28px;
+  height:fit-content;
+}
+
+.price-box small{
+  opacity:.75;
+}
+
+.big-price{
+  font-size:42px;
+  font-weight:800;
+  margin:8px 0;
+}
+
+.price-box p{
+  font-size:12px;
+  opacity:.8;
+  line-height:1.5;
+}
+
+/* ACTIONS */
+
+.actions{
+  border-top:1px solid var(--border);
+  padding:20px 40px;
+  display:flex;
+  justify-content:space-between;
+  background:#fbfcfe;
+}
+
+.actions button{
+  border:0;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+.back{
+  background:white;
+  border:1px solid var(--border)!important;
+  padding:12px 22px;
+  border-radius:9px;
+  color:#566174;
+  font-weight:700;
+}
+
+.next{
+  background:var(--blue);
+  color:white;
+  padding:12px 25px;
+  border-radius:9px;
+  font-weight:700;
+}
+
+.success{
+  text-align:center;
+  padding:45px 20px;
+}
+
+.success-icon{
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  background:#e9f9ef;
+  color:var(--green);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:35px;
+  margin:0 auto 20px;
+}
+
+.success h2{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.success p{
+  color:var(--muted);
+  max-width:450px;
+  margin:auto;
+  line-height:1.6;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+.mobile-menu{
+  display:none;
+}
+
+@media(max-width:850px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:55px;
+  }
+
+  .hero-card{
+    max-width:600px;
+    margin:auto;
+  }
+
+  .features,
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .about{
+    grid-template-columns:1fr;
+    padding:30px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .insurance-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .plans{
+    grid-template-columns:1fr;
+  }
+
+  .review{
+    grid-template-columns:1fr;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+
+}
+
+@media(max-width:550px){
+
+  .nav-actions .login{
+    display:none;
+  }
+
+  .hero h1{
+    font-size:45px;
+    letter-spacing:-2px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .trust-inner{
+    grid-template-columns:1fr;
+  }
+
+  .contact-box{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:30px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .insurance-grid{
+    grid-template-columns:1fr;
+  }
+
+  .content{
+    padding:25px 20px;
+  }
+
+  .actions{
+    padding:16px 20px;
+  }
+
+  .quote-top h1{
+    font-size:30px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     LANDING PAGE
+===================================================== -->
+
+<div id="landingPage">
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+    <div class="logo">coverly.</div>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#insurance">Insurance</a>
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <a class="login" href="#contact">Sign in</a>
+
+      <button class="nav-quote" onclick="startQuote()">
+        Get a quote
+      </button>
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div>
+
+      <div class="hero-badge">
+        <span></span>
+        Insurance made beautifully simple
+      </div>
+
+      <h1>
+        Protection for
+        <span>real life.</span>
+      </h1>
+
+      <p class="hero-text">
+        Simple, flexible insurance designed around you.
+        Get a personalized quote in minutes with no confusing paperwork.
+      </p>
+
+      <div class="hero-buttons">
+
+        <button class="primary-btn" onclick="startQuote()">
+          Get my quote →
+        </button>
+
+        <button class="secondary-btn"
+                onclick="document.getElementById('how').scrollIntoView()">
+          How it works
+        </button>
+
+      </div>
+
+      <div class="trust">
+
+        <div class="avatar-stack">
+          <div class="avatar">A</div>
+          <div class="avatar">M</div>
+          <div class="avatar">S</div>
+          <div class="avatar">J</div>
+        </div>
+
+        <span>
+          Trusted by 250,000+ people
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- HERO PREVIEW -->
+
+    <div class="hero-card">
+
+      <div class="card-top">
+
+        <h3>Your protection</h3>
+
+        <div class="live">
+          <span class="live-dot"></span>
+          LIVE QUOTE
+        </div>
+
+      </div>
+
+
+      <div class="mini-plan active">
+
+        <div class="mini-left">
+
+          <div class="mini-icon">🚗</div>
+
+          <div>
+            <strong>Car insurance</strong>
+            <small>Standard protection</small>
+          </div>
+
+        </div>
+
+        <div class="mini-price">
+          $61/mo
+        </div>
+
+      </div>
+
+
+      <div class="mini-plan">
+
+        <div class="mini-left">
+
+          <div class="mini-icon">🏠</div>
+
+          <div>
+            <strong>Home insurance</strong>
+            <small>Complete protection</small>
+          </div>
+
+        </div>
+
+        <div class="mini-price">
+          $47/mo
+        </div>
+
+      </div>
+
+
+      <div class="mini-plan">
+
+        <div class="mini-left">
+
+          <div class="mini-icon">❤️</div>
+
+          <div>
+            <strong>Life insurance</strong>
+            <small>Family protection</small>
+          </div>
+
+        </div>
+
+        <div class="mini-price">
+          $32/mo
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TRUST BAR -->
+
+  <div class="trust-bar">
+
+    <div class="trust-inner">
+
+      <div class="trust-item">
+        <strong>4.9/5</strong>
+        <span>Customer satisfaction</span>
+      </div>
+
+      <div class="trust-item">
+        <strong>250K+</strong>
+        <span>People protected</span>
+      </div>
+
+      <div class="trust-item">
+        <strong>24/7</strong>
+        <span>Claims support</span>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- INSURANCE -->
+
+  <section class="section" id="insurance">
+
+    <div class="section-heading">
+
+      <div class="label">Coverage</div>
+
+      <h2>Protection for what matters.</h2>
+
+      <p>
+        Choose the coverage that fits your life.
+        No complicated insurance language.
+      </p>
+
+    </div>
+
+
+    <div class="features">
+
+      <div class="feature">
+
+        <div class="feature-icon">🚗</div>
+
+        <h3>Car insurance</h3>
+
+        <p>
+          Flexible protection for your vehicle,
+          from everyday driving to unexpected accidents.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">🏠</div>
+
+        <h3>Home insurance</h3>
+
+        <p>
+          Protect your home and belongings
+          against the things you can't predict.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">❤️</div>
+
+        <h3>Life insurance</h3>
+
+        <p>
+          Give the people you love financial
+          confidence for whatever comes next.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+
+  <section class="section" id="how">
+
+    <div class="section-heading">
+
+      <div class="label">Simple process</div>
+
+      <h2>Insurance without the headache.</h2>
+
+      <p>
+        From quote to coverage in just a few simple steps.
+      </p>
+
+    </div>
+
+
+    <div class="steps">
+
+      <div class="work-step">
+
+        <div class="number">1</div>
+
+        <h3>Choose coverage</h3>
+
+        <p>
+          Tell us what you want to protect
+          and choose the coverage that fits.
+        </p>
+
+      </div>
+
+
+      <div class="work-step">
+
+        <div class="number">2</div>
+
+        <h3>Build your plan</h3>
+
+        <p>
+          Pick Basic, Standard or Premium
+          and see your price update instantly.
+        </p>
+
+      </div>
+
+
+      <div class="work-step">
+
+        <div class="number">3</div>
+
+        <h3>Get protected</h3>
+
+        <p>
+          Enter your details, review your quote
+          and you're ready to go.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section class="section" id="about">
+
+    <div class="about">
+
+      <div>
+
+        <div class="section-heading"
+             style="text-align:left;margin:0 0 20px">
+
+          <div class="label">About Coverly</div>
+
+          <h2>Insurance should feel human.</h2>
+
+        </div>
+
+        <p>
+          We believe insurance shouldn't be filled with
+          confusing terms, endless forms and unexpected surprises.
+        </p>
+
+        <p>
+          Coverly brings everything into one simple experience
+          so you can understand your coverage before you buy it.
+        </p>
+
+        <ul class="about-list">
+
+          <li>Simple, transparent pricing</li>
+          <li>Personalized coverage</li>
+          <li>Fast digital claims</li>
+          <li>Real people when you need help</li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="about-visual">
+
+        <strong>250K+</strong>
+
+        <span>
+          people already protected with Coverly
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section class="section" id="contact">
+
+    <div class="contact-box">
+
+      <div>
+
+        <h2>Have a question?</h2>
+
+        <p>
+          Our team is here to help you find the right coverage.
+        </p>
+
+      </div>
+
+      <button class="contact-btn"
+              onclick="alert('Demo: support@coverly.example')">
+        Contact support →
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <div class="footer-logo">coverly.</div>
+
+        <p>
+          Simple insurance for real life.
+          Transparent coverage without the complexity.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>Product</h4>
+
+        <a href="#insurance">Car insurance</a>
+        <a href="#insurance">Home insurance</a>
+        <a href="#insurance">Life insurance</a>
+        <a href="#insurance">Travel insurance</a>
+
+      </div>
+
+
+      <div>
+
+        <h4>Company</h4>
+
+        <a href="#about">About us</a>
+        <a href="#how">How it works</a>
+        <a href="#contact">Contact</a>
+
+      </div>
+
+
+      <div>
+
+        <h4>Support</h4>
+
+        <a href="#contact">Help center</a>
+        <a href="#contact">Claims</a>
+        <a href="#contact">Privacy</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 Coverly Insurance
+      </span>
+
+      <span>
+        Built for a simpler insurance experience.
+      </span>
+
+    </div>
+
+  </footer>
+
+</div>
+
+
+<!-- =====================================================
+     QUOTE APPLICATION
+===================================================== -->
+
+<div id="quoteApp">
+
+  <div class="quote-page">
+
+    <header class="quote-header">
+
+      <div class="logo">coverly.</div>
+
+      <button class="back-home" onclick="showLanding()">
+        ← Back to website
+      </button>
+
+    </header>
+
+
+    <div class="quote-container">
+
+      <div class="quote-top">
+
+        <h1>Find your protection.</h1>
+
+        <p>
+          Get your personalized insurance quote.
+        </p>
+
+      </div>
+
+
+      <!-- PROGRESS -->
+
+      <div class="progress">
+
+        <div class="progress-line" id="progressLine"></div>
+
+        <div class="step active" data-step="1">
+          <div class="circle">1</div>
+          Coverage
+        </div>
+
+        <div class="step" data-step="2">
+          <div class="circle">2</div>
+          Plan
+        </div>
+
+        <div class="step" data-step="3">
+          <div class="circle">3</div>
+          Details
+        </div>
+
+        <div class="step" data-step="4">
+          <div class="circle">4</div>
+          Review
+        </div>
+
+      </div>
+
+
+      <div class="app">
+
+        <div class="content">
+
+
+          <!-- STEP 1 -->
+
+          <section class="screen active" id="step1">
+
+            <div class="screen-title">
+
+              <h2>
+                What would you like to protect?
+              </h2>
+
+              <p>
+                Choose the type of insurance you need.
+              </p>
+
+            </div>
+
+
+            <div class="insurance-grid">
+
+              <div class="insurance"
+                   data-type="Car"
+                   data-base="45">
+
+                <div class="icon">🚗</div>
+
+                <h3>Car</h3>
+
+                <p>
+                  Protection for your vehicle
+                  and the road ahead.
+                </p>
+
+              </div>
+
+
+              <div class="insurance"
+                   data-type="Home"
+                   data-base="35">
+
+                <div class="icon">🏠</div>
+
+                <h3>Home</h3>
+
+                <p>
+                  Protect your home and
+                  everything inside it.
+                </p>
+
+              </div>
+
+
+              <div class="insurance"
+                   data-type="Life"
+                   data-base="25">
+
+                <div class="icon">❤️</div>
+
+                <h3>Life</h3>
+
+                <p>
+                  Financial protection
+                  for the people you love.
+                </p>
+
+              </div>
+
+
+              <div class="insurance"
+                   data-type="Travel"
+                   data-base="18">
+
+                <div class="icon">✈️</div>
+
+                <h3>Travel</h3>
+
+                <p>
+                  Travel with confidence
+                  wherever you go.
+                </p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- STEP 2 -->
+
+          <section class="screen" id="step2">
+
+            <div class="screen-title">
+
+              <h2>Choose your plan</h2>
+
+              <p>
+                Your price updates instantly.
+              </p>
+
+            </div>
+
+
+            <div class="plans">
+
+              <div class="plan"
+                   data-plan="Basic"
+                   data-multiplier="1">
+
+                <h3>Basic</h3>
+
+                <div class="plan-price">
+                  $<span class="plan-price-value">45</span>
+                  <span>/mo</span>
+                </div>
+
+                <ul>
+                  <li>Essential coverage</li>
+                  <li>Online claims</li>
+                  <li>Standard support</li>
+                </ul>
+
+              </div>
+
+
+              <div class="plan selected"
+                   data-plan="Standard"
+                   data-multiplier="1.35">
+
+                <div class="popular">
+                  MOST POPULAR
+                </div>
+
+                <h3>Standard</h3>
+
+                <div class="plan-price">
+                  $<span class="plan-price-value">61</span>
+                  <span>/mo</span>
+                </div>
+
+                <ul>
+                  <li>Enhanced coverage</li>
+                  <li>Priority claims</li>
+                  <li>24/7 support</li>
+                </ul>
+
+              </div>
+
+
+              <div class="plan"
+                   data-plan="Premium"
+                   data-multiplier="1.8">
+
+                <h3>Premium</h3>
+
+                <div class="plan-price">
+                  $<span class="plan-price-value">81</span>
+                  <span>/mo</span>
+                </div>
+
+                <ul>
+                  <li>Maximum coverage</li>
+                  <li>Fast-track claims</li>
+                  <li>Dedicated support</li>
+                </ul>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- STEP 3 -->
+
+          <section class="screen" id="step3">
+
+            <div class="screen-title">
+
+              <h2>Tell us about yourself</h2>
+
+              <p>
+                We'll use this information to personalize your quote.
+              </p>
+
+            </div>
+
+
+            <div class="form-grid">
+
+              <div class="field">
+
+                <label>First name</label>
+
+                <input
+                  id="firstName"
+                  placeholder="John"
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label>Last name</label>
+
+                <input
+                  id="lastName"
+                  placeholder="Smith"
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label>Email address</label>
+
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="john@example.com"
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label>Age</label>
+
+                <input
+                  id="age"
+                  type="number"
+                  min="18"
+                  max="100"
+                  placeholder="30"
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label>Location</label>
+
+                <select id="location">
+
+                  <option>California</option>
+                  <option>New York</option>
+                  <option>Texas</option>
+                  <option>Florida</option>
+                  <option>Other</option>
+
+                </select>
+
+              </div>
+
+
+              <div class="field">
+
+                <label id="extraLabel">
+                  Vehicle type
+                </label>
+
+                <select id="extraInput">
+
+                  <option>Sedan</option>
+                  <option>SUV</option>
+                  <option>Truck</option>
+                  <option>Sports car</option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- STEP 4 -->
+
+          <section class="screen" id="step4">
+
+            <div class="screen-title">
+
+              <h2>Review your quote</h2>
+
+              <p>
+                Everything looks good? You're ready to continue.
+              </p>
+
+            </div>
+
+
+            <div class="review">
+
+              <div class="summary">
+
+                <div class="summary-row">
+                  <span>Insurance</span>
+                  <strong id="reviewType">Car</strong>
+                </div>
+
+                <div class="summary-row">
+                  <span>Plan</span>
+                  <strong id="reviewPlan">Standard</strong>
+                </div>
+
+                <div class="summary-row">
+                  <span>Customer</span>
+                  <strong id="reviewName">
+                    John Smith
+                  </strong>
+                </div>
+
+                <div class="summary-row">
+                  <span>Email</span>
+                  <strong id="reviewEmail">
+                    john@example.com
+                  </strong>
+                </div>
+
+                <div class="summary-row">
+                  <span>Location</span>
+                  <strong id="reviewLocation">
+                    California
+                  </strong>
+                </div>
+
+              </div>
+
+
+              <div class="price-box">
+
+                <small>
+                  Estimated premium
+                </small>
+
+                <div class="big-price"
+                     id="finalPrice">
+                  $61
+                </div>
+
+                <p>
+                  per month. Final pricing may vary
+                  after verification.
+                </p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- SUCCESS -->
+
+          <section class="screen" id="success">
+
+            <div class="success">
+
+              <div class="success-icon">
+                ✓
+              </div>
+
+              <h2>
+                You're all set!
+              </h2>
+
+              <p>
+                Your personalized insurance quote
+                has been created successfully.
+              </p>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="actions" id="actions">
+
+          <button
+            class="back"
+            id="backBtn"
+            onclick="previousStep()">
+
+            ← Back
+
+          </button>
+
+
+          <button
+            class="next"
+            id="nextBtn"
+            onclick="nextStep()">
+
+            Continue →
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   PAGE SWITCHING
+===================================================== */
+
+function startQuote(){
+
+  document.getElementById("landingPage").style.display="none";
+
+  document.getElementById("quoteApp").style.display="block";
+
+  window.scrollTo(0,0);
+
+}
+
+function showLanding(){
+
+  document.getElementById("quoteApp").style.display="none";
+
+  document.getElementById("landingPage").style.display="block";
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   QUOTE VARIABLES
+===================================================== */
+
+let currentStep=1;
+
+let insuranceType="Car";
+let basePrice=45;
+
+let selectedPlan="Standard";
+let multiplier=1.35;
+
+let premium=61;
+
+
+/* =====================================================
+   INSURANCE SELECTION
+===================================================== */
+
+document.querySelectorAll(".insurance").forEach(card=>{
+
+  card.addEventListener("click",()=>{
+
+    document
+      .querySelectorAll(".insurance")
+      .forEach(c=>c.classList.remove("selected"));
+
+    card.classList.add("selected");
+
+    insuranceType=card.dataset.type;
+
+    basePrice=Number(card.dataset.base);
+
+    updatePlans();
+
+    updateExtraField();
+
+  });
+
+});
+
+
+/* =====================================================
+   PLAN SELECTION
+===================================================== */
+
+document.querySelectorAll(".plan").forEach(plan=>{
+
+  plan.addEventListener("click",()=>{
+
+    document
+      .querySelectorAll(".plan")
+      .forEach(p=>p.classList.remove("selected"));
+
+    plan.classList.add("selected");
+
+    selectedPlan=plan.dataset.plan;
+
+    multiplier=Number(plan.dataset.multiplier);
+
+    calculatePremium();
+
+  });
+
+});
+
+
+/* =====================================================
+   UPDATE PLAN PRICES
+===================================================== */
+
+function updatePlans(){
+
+  document.querySelectorAll(".plan").forEach(plan=>{
+
+    const factor=Number(plan.dataset.multiplier);
+
+    const price=Math.round(basePrice*factor);
+
+    plan.querySelector(
+      ".plan-price-value"
+    ).textContent=price;
+
+  });
+
+  calculatePremium();
+
+}
+
+
+/* =====================================================
+   REAL-TIME PREMIUM
+===================================================== */
+
+function calculatePremium(){
+
+  let price=basePrice*multiplier;
+
+  const age=Number(
+    document.getElementById("age").value
+  );
+
+  if(age){
+
+    if(age<25){
+      price+=15;
+    }
+
+    if(age>=50 && age<65){
+      price+=7;
+    }
+
+    if(age>=65){
+      price+=15;
+    }
+
+  }
+
+  premium=Math.round(price);
+
+  document.getElementById(
+    "finalPrice"
+  ).textContent="$"+premium;
+
+}
+
+
+/* =====================================================
+   DYNAMIC FORM
+===================================================== */
+
+function updateExtraField(){
+
+  const label=
+    document.getElementById("extraLabel");
+
+  const input=
+    document.getElementById("extraInput");
+
+
+  if(insuranceType==="Car"){
+
+    label.textContent="Vehicle type";
+
+    input.innerHTML=`
+      <option>Sedan</option>
+      <option>SUV</option>
+      <option>Truck</option>
+      <option>Sports car</option>
+    `;
+
+  }
+
+
+  if(insuranceType==="Home"){
+
+    label.textContent="Property type";
+
+    input.innerHTML=`
+      <option>Apartment</option>
+      <option>House</option>
+      <option>Condo</option>
+      <option>Townhouse</option>
+    `;
+
+  }
+
+
+  if(insuranceType==="Life"){
+
+    label.textContent="Coverage amount";
+
+    input.innerHTML=`
+      <option>$100,000</option>
+      <option>$250,000</option>
+      <option>$500,000</option>
+      <option>$1,000,000</option>
+    `;
+
+  }
+
+
+  if(insuranceType==="Travel"){
+
+    label.textContent="Trip duration";
+
+    input.innerHTML=`
+      <option>1–7 days</option>
+      <option>8–14 days</option>
+      <option>15–30 days</option>
+      <option>30+ days</option>
+    `;
+
+  }
+
+}
+
+
+/* =====================================================
+   AGE REAL-TIME
+===================================================== */
+
+document
+  .getElementById("age")
+  .addEventListener(
+    "input",
+    calculatePremium
+  );
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+function nextStep(){
+
+  if(currentStep===1){
+
+    const selected=
+      document.querySelector(
+        ".insurance.selected"
+      );
+
+    if(!selected){
+
+      alert(
+        "Please select an insurance type."
+      );
+
+      return;
+    }
+
+  }
+
+
+  if(currentStep===3){
+
+    const firstName=
+      document.getElementById(
+        "firstName"
+      ).value.trim();
+
+    const email=
+      document.getElementById(
+        "email"
+      ).value.trim();
+
+    if(!firstName || !email){
+
+      alert(
+        "Please enter your name and email."
+      );
+
+      return;
+    }
+
+  }
+
+
+  if(currentStep===4){
+
+    submitQuote();
+
+    return;
+
+  }
+
+
+  currentStep++;
+
+  showStep();
+
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+function previousStep(){
+
+  if(currentStep>1){
+
+    currentStep--;
+
+    showStep();
+
+  }
+
+}
+
+
+/* =====================================================
+   SHOW STEP
+===================================================== */
+
+function showStep(){
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(screen=>
+      screen.classList.remove("active")
+    );
+
+
+  const screen=
+    document.getElementById(
+      "step"+currentStep
+    );
+
+  if(screen){
+    screen.classList.add("active");
+  }
+
+
+  document
+    .querySelectorAll(".step")
+    .forEach(step=>{
+
+      const number=
+        Number(step.dataset.step);
+
+      step.classList.remove(
+        "active",
+        "done"
+      );
+
+      if(number===currentStep){
+        step.classList.add("active");
+      }
+
+      if(number<currentStep){
+        step.classList.add("done");
+      }
+
+    });
+
+
+  const progress=
+    ((currentStep-1)/3)*80;
+
+  document.getElementById(
+    "progressLine"
+  ).style.width=progress+"%";
+
+
+  document.getElementById(
+    "backBtn"
+  ).style.visibility=
+    currentStep===1
+      ?"hidden"
+      :"visible";
+
+
+  document.getElementById(
+    "nextBtn"
+  ).textContent=
+    currentStep===4
+      ?"Confirm quote ✓"
+      :"Continue →";
+
+
+  if(currentStep===4){
+
+    updateReview();
+
+  }
+
+}
+
+
+/* =====================================================
+   REVIEW
+===================================================== */
+
+function updateReview(){
+
+  const firstName=
+    document.getElementById(
+      "firstName"
+    ).value || "John";
+
+  const lastName=
+    document.getElementById(
+      "lastName"
+    ).value || "Smith";
+
+  const email=
+    document.getElementById(
+      "email"
+    ).value || "john@example.com";
+
+  const location=
+    document.getElementById(
+      "location"
+    ).value;
+
+
+  document.getElementById(
+    "reviewType"
+  ).textContent=insuranceType;
+
+
+  document.getElementById(
+    "reviewPlan"
+  ).textContent=selectedPlan;
+
+
+  document.getElementById(
+    "reviewName"
+  ).textContent=
+    firstName+" "+lastName;
+
+
+  document.getElementById(
+    "reviewEmail"
+  ).textContent=email;
+
+
+  document.getElementById(
+    "reviewLocation"
+  ).textContent=location;
+
+
+  document.getElementById(
+    "finalPrice"
+  ).textContent="$"+premium;
+
+}
+
+
+/* =====================================================
+   SUBMIT
+===================================================== */
+
+function submitQuote(){
+
+  document
+    .getElementById("step4")
+    .classList.remove("active");
+
+
+  document
+    .getElementById("success")
+    .classList.add("active");
+
+
+  document
+    .getElementById("actions")
+    .style.display="none";
+
+
+  document.querySelector(
+    ".quote-top h1"
+  ).textContent=
+    "Coverage secured.";
+
+
+  document.querySelector(
+    ".quote-top p"
+  ).textContent=
+    "Your personalized insurance quote is ready.";
+
+
+  document
+    .querySelectorAll(".step")
+    .forEach(step=>
+      step.classList.add("done")
+    );
+
+
+  document.getElementById(
+    "progressLine"
+  ).style.width="100%";
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+updateExtraField();
+
+updatePlans();
+
+showStep();
+
+</script>
+
+</body>
+</html>
